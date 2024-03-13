@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+    <h1>Datos de Empleado</h1>
+</div>
+
+<form [formGroup]="formEmp" (ngSubmit)="formEnviado()">
+<div mat-dialog-content class="content">
+    <div class="column">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" formControlName="nombre">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input matInput type="text" formControlName="apellido">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Ej. isaac@gmail.com" formControlName="email">
+        </mat-form-field>
+        <mat-radio-group aria-label="Selecciona una opción" formControlName="genero">
+            <mat-label><b>Género</b></mat-label> <br>
+            <mat-radio-button value="Masculino" checked="true">Masculino</mat-radio-button>
+            <mat-radio-button value="Femenino">Femenino</mat-radio-button>
+            <mat-radio-button value="Otro">Otro</mat-radio-button>
+          </mat-radio-group>   
+    </div>
+</div>
+
+<div mat-dialog-actions class="accion">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Actualizar': 'Guardar'}}</button>
+</div>
+</form>
